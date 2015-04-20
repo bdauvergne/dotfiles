@@ -1,0 +1,12 @@
+#!/bin/bash
+renice +20 -p $$
+ionice -c3 -p$$
+
+# Set up an array with outboxes
+sentboxes=( "~/Mail/Entrouvert/Sent/" )
+
+# Run mu on each of them
+for dir in "${sentboxes[@]}"
+do
+    mu index --nocleanup --maildir="${dir}" --muhome=~/.mu-sent-index
+done

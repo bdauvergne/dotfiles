@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ionice -c3 nice -n20 "$@"
